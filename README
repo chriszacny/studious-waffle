@@ -1,0 +1,24 @@
+To Manually Test:
+
+Create a playbook in any directory: $ touch testmod.yml
+
+Add the following to the new playbook file:
+
+- name: test my new module
+  connection: local
+  hosts: localhost
+  tasks:
+  - name: run the new module
+    my_new_test_module:
+      name: 'hello'
+      new: true
+    register: testout
+  - name: dump test output
+    debug:
+      msg: '{{ testout }}'
+
+Run the playbook and analyze the output: $ ansible-playbook ./testmod.yml
+
+To run pytest against a single test module, you can do the following (provide the path to the test module appropriately):
+
+$ pytest -r a --cov=. --cov-report=html --fulltrace --color yes test/units/modules/.../test/my_new_test_module.py

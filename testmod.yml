@@ -1,0 +1,13 @@
+---
+- name: Test module
+  connection: local
+  hosts: localhost
+  tasks:
+  - name: Run the new module
+    f5_version_num_gt_eq:
+      version_number_one: '14.0.0'
+      version_number_two: '13.1.0'
+    register: testout
+  - name: Dump test output
+    debug:
+      msg: '{{ testout }}'

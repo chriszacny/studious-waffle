@@ -1,0 +1,6 @@
+{
+    "ANSIBLE_MODULE_ARGS": {
+        "version_number_one": "14.0.0",
+        "version_number_two": "13.1.0"
+    }
+}
